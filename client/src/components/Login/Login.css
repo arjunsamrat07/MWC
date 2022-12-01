@@ -1,0 +1,55 @@
+.login_main h4{
+text-align: center;
+margin: 30px;
+}
+
+.main_buttons{
+    margin: 30px 10px;
+}
+
+.main_buttons button{
+    color: #008BCD;
+    background-color: #EFF5FF;
+}
+
+.main_buttons button:hover{
+    color: #fff;
+}
+
+.main_buttons button:nth-child(1){
+ width: 50%;
+ border-bottom-right-radius: 0px;
+ border-top-right-radius: 0px;
+}
+.main_buttons button:nth-child(2){
+ width: 50%;
+ border-bottom-left-radius: 0px;
+ border-top-left-radius: 0px;
+}
+
+.main_buttons button i{
+    margin-right: 10px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    min-width: 450px;
+}
+
+input{
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: #EFF5FF;
+}
+
+form label{
+    margin-left: 11px;
+    margin-bottom: -10px;
+}
+
+form span{
+    text-align: end;
+}

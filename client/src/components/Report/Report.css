@@ -1,0 +1,42 @@
+.report_main {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: calc(100vh - 70px);
+    padding: 30px;
+
+}
+.report_main > div{
+    display: flex;
+}
+
+.report_main .calendarContainer{
+margin:0 100px;
+}
+.calander {
+    width: 200px;
+    height: 50px;
+}
+
+.reports {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    padding: 20px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+}
+
+.reports h4{
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.alerts{
+padding: 5px;
+border: 1px solid gainsboro;
+border-radius: 5px;
+margin-bottom: 10px;
+}
+

@@ -1,0 +1,74 @@
+.vehicle_main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+.vehicle_left{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vehicle_left img{
+    width: 80%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.vehicle_right{
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vehicle_details{
+    background-color: #F3F3F3;
+    width: 430px;
+    height: 360px;
+    text-align: center;
+    border-radius: 10px;
+}
+.vehicle_no{
+    text-align: left;
+    padding: 30px;
+}
+
+.vehicle_no h3{
+     margin-top: 10px;
+}
+
+.vehicle_details .not_registerd i{
+    color: rgb(164, 0, 0);
+    font-size: 60px;
+    padding: 15px;
+}
+
+.vehicle_details .not_registerd h5{
+    color: rgb(164, 0, 0);
+    padding: 10px;
+}
+
+.vehicle_details .not_registerd button{
+    background-color: black;
+    margin: 15px;
+    padding: 12px 40px;
+}
+
+
+.vehicle_details .verified i{
+    color:green;
+    font-size: 60px;
+    padding: 15px;
+}
+
+.vehicle_details .verified h5{
+    color: green;
+    padding: 10px;
+}
+
+
+
