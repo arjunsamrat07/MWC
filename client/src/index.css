@@ -32,7 +32,7 @@ html {
 }
 
 .btn{
-  background-color:gray;
+  /* background:gray; */
   display: inline-block;
   color:white;
   padding: 12px;

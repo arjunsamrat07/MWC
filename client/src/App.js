@@ -5,7 +5,7 @@ import Home from './components/Home/Home';
 import Vehicle from './components/Vehicle/Vehicle';
 import Alert from './components/Alert/Alert';
 import Navbar from './components/Navbar/Navbar';
-import Videos from './components/Videos/Videos';
+import Cameras from './components/Cameras/Cameras';
 import Map from './components/Map/Map';
 import Report from './components/Report/Report';
 
@@ -13,12 +13,12 @@ import Report from './components/Report/Report';
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/vehicle' element={<Vehicle />} />
         <Route path='/alert' element={<Alert />} />
-        <Route path='/videos' element={<Videos />} />
+        <Route path='/cameras' element={<Cameras />} />
         <Route path='/map' element={<Map />} />
         <Route path='/report' element={<Report />} />
       </Routes>

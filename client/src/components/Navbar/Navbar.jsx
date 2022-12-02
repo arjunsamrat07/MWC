@@ -1,29 +1,37 @@
 import React from 'react'
+import { useState } from 'react'
 import "./Navbar.css"
 
 
 
 
 const Navbar = () => {
+    const [camera, setCamera] = useState('camera1')
 
     return (
         <div className="navbar_main">
 
-            <select>
-                <option value="all">All</option>
-                <option value="camera1">camera 1</option>
-                <option value="camera2">camera 2</option>
-                <option value="camera3">camera 3</option>
-                <option value="camera4">camera 4</option>
-            </select>
+            <div className='select'>
+                <div>{camera}</div>
+                <div className="options">
+                    <span value="camera1">Camera 1</span>
+                    <span value="camera2">Camera 2</span>
+                    <span value="camera3">Camera 3</span>
+                    <span value="camera4">Camera 4</span>
+                </div>
+            </div>
 
             <div className="alert">
                 <i class="fa-solid fa-circle-exclamation"></i>
                 <span>Neelgai detected at camera 3</span>
             </div>
             <div className='icons'>
-                <i class="fa-regular fa-bell"></i>
-                <i class="fa-regular fa-user"></i>
+                <span>
+                    <i className="fa-regular fa-bell"></i>
+                </span>
+                <span>
+                    <i className="fa-regular fa-user"></i>
+                </span>
             </div>
         </div>
     )

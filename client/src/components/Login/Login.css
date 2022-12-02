@@ -1,15 +1,48 @@
-.login_main h4{
+.login_main h4.heading{
 text-align: center;
-margin: 30px;
+/* margin: 30px; */
+font-size: 40px;
+color: #008BCD;
 }
 
-.main_buttons{
-    margin: 30px 10px;
+.head-icon{
+    text-align: center;
+    color: #008BCD;
+    font-size: 100px;
 }
+.main_buttons{
+    width: 100%;
+    margin: 30px 10px;
+    position: relative;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #008BCD;
+}
+
+.main_buttons .btn-bg{
+    transition: .3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    background: #008BCD;
+    z-index: -1;
+}
+
 
 .main_buttons button{
     color: #008BCD;
-    background-color: #EFF5FF;
+    background-color: transparent;
+}
+.main_buttons button.btn:hover{
+    color: #0e6b96;
+    background-color: #008ccd26;
+}
+.main_buttons button.btn.active{
+    /* background: #008BCD; */
+    color: #fff;
 }
 
 .main_buttons button:hover{
@@ -27,6 +60,13 @@ margin: 30px;
  border-top-left-radius: 0px;
 }
 
+ button.btn.sign-in{
+    background: #008BCD ;
+}
+
+button.btn.sign-in:hover{
+    background: #0399de ;
+}
 .main_buttons button i{
     margin-right: 10px;
 }
@@ -52,4 +92,25 @@ form label{
 
 form span{
     text-align: end;
+}
+
+
+
+.from-left{
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: loadtocenter .3s ease-in-out forwards;
+}
+.from-right{
+    opacity: 0;
+    transform: translateX(50px);
+    animation: loadtocenter .3s ease-in-out forwards;
+}
+
+@keyframes loadtocenter{
+    0%{}
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

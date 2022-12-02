@@ -15,18 +15,18 @@ const Vehicle = () => {
                         <h2>MH12KS5454</h2>
                         <h3>Gate No - 3</h3>
                     </div>
-                    {/* <span className='not_registerd'>
+                    {true ? <span className='not_registerd'>
                         <i className="fa-regular fa-circle-xmark"></i>
                         <h2>Not Verified</h2>
                         <h5>This car is not registered with MWC</h5>
                         <button className='btn'>Register Now</button>
-                    </span> */}
-
+                    </span>
+                    :
                     <span className='verified'>
                         <i class="fa-regular fa-circle-check"></i>
                         <h2>Verified</h2>
                         <h5>This car is registered with MWC.</h5>
-                    </span>
+                    </span>}
 
 
                 </div>

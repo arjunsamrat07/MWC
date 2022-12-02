@@ -28,7 +28,7 @@
 
 .alert_details {
     background-color: #F3F3F3;
-    border: 1px solid rgb(219, 0, 0);
+    outline: 1px solid rgb(219, 0, 0);
     width: 430px;
     height: 360px;
     text-align: center;

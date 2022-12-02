@@ -1,0 +1,27 @@
+.map{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 30px;
+    min-height: 100vh;
+    padding-top: 100px;
+}
+.map-container{
+    margin: 0 20px;
+    border-radius:10px;
+    overflow: hidden;
+}
+.map .camera-detail{
+    padding: 0 5px 5px 5px;
+    min-width: 300px;
+    /* background: rgba(0, 0, 0, 0.02); */
+    /* background: red; */
+}
+.map .camera-detail ul li{
+    padding: 10px;
+    margin-bottom: 10px 0;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+.map .camera-detail ul li:nth-child(1){
+    background: #d100002b;
+}
