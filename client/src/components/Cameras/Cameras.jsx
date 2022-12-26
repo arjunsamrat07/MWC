@@ -246,13 +246,9 @@ const cameras = [
         <div className="cameras-container" ref={scrollRef} id='cameras'>
           <div className='videos_main' style={expand ? { marginTop: '10px', height: 'calc(100vh - 10px)' } : {}}>
 
-
-
-
             { 
               cams.map((cam)=>cam.camera)
             }
-
 
           </div>
           <div className="camera-sidebar">
