@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { MdKeyboardArrowDown } from 'react-icons/md'
 import "./Navbar.css"
 
 
@@ -18,7 +19,17 @@ const Navbar = () => {
                     <span value="camera2">Camera 2</span>
                     <span value="camera3">Camera 3</span>
                     <span value="camera4">Camera 4</span>
+                    <span value="camera4">Camera 4</span>
+                    <span value="camera4">Camera 4</span>
+                    <span value="camera4">Camera 4</span>
+                    <span value="camera4">Camera 4</span>
+                    <span value="camera4">Camera 4</span>
+                    <span value="camera4">Camera 4</span>
+                    <span value="camera4">Camera 4</span>
+                    <span value="camera4">Camera 4</span>
+                    <span value="camera4">Camera 4</span>
                 </div>
+                <MdKeyboardArrowDown />
             </div>
 
             <div className="alert">

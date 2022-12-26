@@ -1,23 +1,354 @@
+.main-container{
+    background: #333;
+}
+.cameras-container {
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    /* background: #fff; */
+    position: relative;
+}
 .videos_main{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-evenly;
+    height: calc(100vh - 70px);
+    overflow: hidden;
+    margin-top: 70px;
+    padding-right: 50px;
+    /* background: #005278; */
+    transition: .3s;
+    position: relative;
+}
+
+.cameras-container .camera-sidebar{
+    max-width: 60px;
+    position: sticky;
+    top: 25vh;
+    height: 50vh;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    padding-top: 100px;
+    flex-direction: column;
+    margin-top: 10vh;
+    /* width: 20px; */
+    background: #666;
+    transition: .3s;
+    padding: 10px;
+    border-radius: 10px 0 0 10px;
+    border: 1px solid #666;
+    border-left: 1px solid #fff;
+    /* box-shadow: -10px 0 10px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.489);
+    z-index: 1;
+}
+.cameras-container .camera-sidebar .options{
+    position: absolute;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    padding: 0 4px;
+    opacity: 0;
+    background: #666;
+    border-left: 2px solid #fff;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.2);
+    transition: .3s;
+    transform: translateX(0%);
+}
+.camera-sidebar .options:before, .camera-sidebar .options:after{
+    content: '';
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    /* background: red; */
+    position: absolute;
+    right: 8px;
+    box-shadow: 6px 5px #666;
+}
+.camera-sidebar .options:before{
+    top: -14px;
+}
+
+.camera-sidebar .options:after{
+    box-shadow: 6px -5px #666;
+    bottom: -14px;
+    
+}
+
+.cameras-container .camera-sidebar  .divider{
+    width: 100%;
+    height: .5px;
+    background: #dfd;
+}
+.cameras-container .camera-sidebar .options .option{
+    margin: 10px 0;
+    color: #fff;
+    background: #00000033;
+    cursor: pointer;
+    padding: 5px 2px;
+    border-radius: 4px;
+    transition: .3s;
+    font-size: 14px;
+}
+.cameras-container .camera-sidebar .options .option:hover{
+    background: #333;
+    color: #fff;
+}
+.cameras-container .camera-sidebar .options .option:active{
     background: #666;
 }
-
-.videos_main .camera{
-    background: #D9D9D9;
-    width: 350px;
-    height: 250px;
-    margin: 10px;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 5px solid #D9D9D9;
+.cameras-container .camera-sidebar .options .option.active{
+    background: #333;
+    color: #fff;
+}
+.cameras-container .camera-sidebar .options.active {
+    animation: show-grid-options .3s ease-in-out forwards;
+    pointer-events: all;
+}
+.cameras-container .camera-sidebar .options {
+    animation: hide-grid-options .3s ease-in-out forwards;
+    pointer-events: none;
+}
+@keyframes show-grid-options{
+    0%{
+        
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+}
+@keyframes hide-grid-options{
+    0%{
+        transform: translateX(-100%);
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 0;
+        /* display: none; */
+    }
 }
 
-.videos_main .camera img{
+.cameras-container .camera-sidebar > span{
+    margin: 10px 0;
+}
+
+.cameras-container .camera-sidebar span input{
+    width: 30%;
+    background: #ffffff55;
+    border-radius: 2px;
+}
+.cameras-container .camera-sidebar span input[type=number]::-webkit-inner-spin-button, 
+.cameras-container .camera-sidebar span input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+.cameras-container .camera-sidebar svg{
+    color: #fff;
+    font-size: 30px;
+    padding: 5px;
+    cursor: pointer;
+    background: #00000033;
+    border-radius: 4px;
+    transition: .3s;
+}
+
+.cameras-container .camera-sidebar svg:hover{
+    background: #00000099;
+}
+
+.cameras-container .camera-sidebar svg:active{
+    background: #00000033;
+}
+
+.camera{
+    background: transparent;
+    /* width: 400px;
+    height: 300px; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* outline: 1px solid #00000099; */
+    padding: 10px;
+    background: #66666644;
+    margin: 30px 10px;
+    border-radius: 5px;
+    position: relative;
+    overflow: auto;
+    border-left: 1px solid #fff;
+    border-top: 1px solid #fff;
+    box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.4), -5px -5px 15px rgba(255, 255, 255, 0.2), inset 4px 4px 10px #666, inset -4px -4px 10px #222;
+    cursor: pointer;
+    /* box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2); */
+    animation: load-camera .3s ease-in-out forwards;
+    opacity: 0;
+    transform: translatex(50px);
+}
+
+.videos_main .camera:nth-child(even){
+    transform: translatex(-50px);
+
+}
+
+@keyframes load-camera {
+    0%{
+    }
+    100%{
+        opacity: 1;
+        transform: translatex(0px);
+    }
+}
+
+.camera img{
+    border-radius: 5px;
+    /* border: 1px solid #00000099; */
     width: 100%;
+}
+
+.camera .actions{
+    width: 100%;
+    height: 35px;
+    background: rgba(79, 79, 79);
+    position: absolute;
+    bottom: -35px;
+    left: 0;
+    /* background: ; */
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 20px;
+    font-size: 25px;
+    transition: .3s;
+    box-shadow: 0 0 0px #000;
+    border-top: 1px solid #fff;
+}
+
+.camera .actions svg{
+    /* background: #fff; */
+    color: #fff;
+    border-radius: 5px;
+    transition: .3s;
+    
+}
+
+.camera .actions svg:hover{
+    background: #fff;
+    color: #666;
+}
+
+.camera:hover .actions{
+    bottom: 0;
+    box-shadow: 0 0 15px #000;
+}
+
+.camera .actions:hover{
+background: rgb(79, 79, 79);
+}
+
+.expand-camera{
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .3s;
+    outline: 1px solid #00000099;
+    /* background: #333; */
+    /* border-radius: 10px; */
+    border: none;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    top: 0;
+}
+
+.expand-camera .back-to-cameras{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+.expand-camera .back-to-cameras svg{
+    font-size: 40px;
+    color: #fff;
+    transition: .2s;
+}
+.expand-camera .back-to-cameras svg:hover{
+    color: #008BCD;
+}
+.expand-camera.expanded{
+    height: 100vh;
+    padding: 20px;
+    outline: 1px solid #00000099;
+    /* border: 1px solid #fff; */
+}
+
+.expand-camera .close-expanded{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #666;
+    cursor: pointer;
+}
+
+.expand-camera .close-expanded:hover{
+    color: rgb(255, 0, 119);
+}
+
+
+.expand-camera .camera-detail{
+    height:90%;
+    padding: 10px 20px;
+}
+
+.expand-camera .camera-detail div{
+    display: flex;
+    width: 100%;
+    margin: 15px 0;
+    position: relative;
+}
+
+.expand-camera .camera-detail div .copybtn{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 30px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: .2s;
+}
+
+.expand-camera .camera-detail div .copybtn:hover{
+    background: #ffffff22;
+}
+
+.expand-camera .camera-detail div .copybtn:active{
+    background: #ffffff11;
+}
+
+.expand-camera .camera-detail div > p:nth-child(1){
+    min-width: 100px;
+    color: #666;
+}
+
+.expand-camera .camera-detail div > p:nth-child(2){
+    color: #008BCD;
 }

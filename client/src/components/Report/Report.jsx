@@ -4,6 +4,8 @@ import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { Button } from '@mui/material';
+import Navbar from '../Navbar/Navbar';
 
 const Report = () => {
 
@@ -52,8 +54,8 @@ const Report = () => {
 
     return (
         <div className='report_main'>
-
-            <div>
+            <Navbar />
+            {/* <div> */}
                 <div className='calendarContainer'>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DatePicker
@@ -65,11 +67,14 @@ const Report = () => {
                             onChange={(newValue) => {
                                 setValue(newValue);
                             }}
+                            // PopperProps={{style:{marginTop:'40px'}}}
+                            PaperProps={{style:{marginTop:'40px', marginLeft:'40px'}}}
                             renderInput={(params) => <TextField {...params} />}
                         />
                         {console.log(value)}
                     </LocalizationProvider>
                 </div>
+                <div className='reports-container'>
                 <div className="reports">
                     <h4>Recent Alerts</h4>
                     {data.map((obj) => (
@@ -80,6 +85,7 @@ const Report = () => {
                     ))}
 
                 </div>
+                <Button color={'success'} style={{ padding:'10px 20px '}} className='download-btn'>Download</Button>
 
             </div>
         </div>

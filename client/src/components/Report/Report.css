@@ -1,31 +1,41 @@
 .report_main {
+    width: 100%;
+    /* min-height: 100vh; */
     display: flex;
     position: relative;
-    align-items: flex-start;
-    justify-content: flex-start;
-    height: calc(100vh - 70px);
+    top: 70px;
+    align-items:flex-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    min-height: calc(100vh - 70px);
     padding: 30px;
 
 }
-.report_main > div{
-    display: flex;
-}
-
-.report_main .calendarContainer{
-margin:0 100px;
+.calendarContainer, .reports{
+    margin: 0 20px;
 }
 .calander {
-    width: 200px;
+    width: 350px;
     height: 50px;
 }
 
+.reports-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* border: 1px solid gainsboro; */
+    justify-content: center;
+    /* padding: 20px; */
+    border-radius: 5px;
+}
 .reports {
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
+    min-width: 350px;
     padding: 20px;
     border: 1px solid gainsboro;
+    /* background:  rgba(220, 220, 220, 0.215); */
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
 .reports h4{
@@ -40,3 +50,11 @@ border-radius: 5px;
 margin-bottom: 10px;
 }
 
+
+button.download-btn{
+    /* width: 350px; */
+    margin: 10px;
+    background: #0C9D5811;
+    align-self: flex-end;
+    border:1px solid #0C9D58
+}

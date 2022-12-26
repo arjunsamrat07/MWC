@@ -17,7 +17,7 @@ color: #008BCD;
     display: flex;
     border-radius: 10px;
     overflow: hidden;
-    border: 1px solid #008BCD;
+    outline: 1px solid #008BCD;
 }
 
 .main_buttons .btn-bg{
@@ -77,12 +77,16 @@ form{
     width: 100%;
     min-width: 450px;
 }
+form label{
+    color: #008BCD;
+}
 
-input{
+form input{
     width: 100%;
     padding: 12px;
     border-radius: 5px;
     background-color: #EFF5FF;
+    color: #008BCD;
 }
 
 form label{
@@ -90,8 +94,13 @@ form label{
     margin-bottom: -10px;
 }
 
-form span{
+form p{
     text-align: end;
+    color: #444;
+}
+form p span{
+    color: #008BCD;
+    cursor: pointer;
 }
 
 
@@ -100,9 +109,11 @@ form span{
     opacity: 0;
     transform: translateX(-50px);
     animation: loadtocenter .3s ease-in-out forwards;
+    font-weight: 100;
 }
 .from-right{
     opacity: 0;
+    font-weight: 100;
     transform: translateX(50px);
     animation: loadtocenter .3s ease-in-out forwards;
 }
