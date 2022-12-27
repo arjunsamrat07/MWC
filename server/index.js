@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true, 
   })
-.then(()=>app.listen(process.env.PORT,()=>console.log("connected and listning on port 8080")))
+.then(()=>app.listen(process.env.PORT,()=>console.log(`connected and listning on port ${process.env.PORT}`)))
 .catch((err)=>console.log(err))
 
 

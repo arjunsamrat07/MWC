@@ -34,8 +34,8 @@ function Login() {
       {action === "password" && <h4 className='heading from-right'>Reset Password</h4>}
       </div>
       <div className='main_buttons'>
-        <button onClick={() => setUserType(true)} className={userType ? 'btn active' : 'btn'}><i class="fa-regular fa-circle-user"></i>  Security</button>
-        <button onClick={() => setUserType(false)} className={!userType ? 'btn active' : 'btn'}><i class="fa-regular fa-circle-user"></i> Gate Entry</button>
+        <button onClick={() => setUserType(true)} className={userType ? 'btn active' : 'btn'}><i className="fa-regular fa-circle-user"></i>  Security</button>
+        <button onClick={() => setUserType(false)} className={!userType ? 'btn active' : 'btn'}><i className="fa-regular fa-circle-user"></i> Gate Entry</button>
         <span style={!userType ? { transform: 'translateX(100%)' } : {}} className="btn-bg"></span>
       </div>
       <form action="" >
