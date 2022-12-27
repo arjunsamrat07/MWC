@@ -25,8 +25,9 @@ const getAllUsers = async (req, res, next) => {
 
 const addUser = async (req, res, next) => {
     const { name, email, password, role } = req.body;
+    console.log(name)
     if (!name && name.trim() == "" && !email && email.trim() == "" && !password && password.length < 6 && !role && role.trim() == "") {
-        return res.status(422).json({ message: "invalid data" })
+        return res.status(401).json({ message: "invalid data" })
     }
 
     const hashedPassword = await bcryptjs.hash(password, 10)
@@ -79,8 +80,8 @@ const userLogin = async (req, res, next) => {
 
         const { email, password } = req.body
 
+        console.log(req.body)
         const user = await User.findOne({ email: email })
-
         if (user) {
             const passwordMatch = await bcryptjs.compare(password, user.password)
 
@@ -106,11 +107,11 @@ const userLogin = async (req, res, next) => {
                 res.status(200).json(response)
 
             } else {
-                res.status(200).json({ success: false, message: "wrong credintials" })
+                res.status(401).json({ success: false, message: "wrong credintials" })
             }
 
         } else {
-            res.status(200).json({ success: false, message: "wrong credintials" })
+            res.status(401).json({ success: false, message: "wrong credintials" })
         }
 
     } catch (err) {
