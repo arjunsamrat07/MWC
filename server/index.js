@@ -1,7 +1,10 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const router = require("./routes/user-routes")
+const cors = require("cors")
 const app = express()
+
+app.use(cors())
 app.use(express.json())
 const dotenv = require('dotenv').config();
 const refreshToken = require("./routes/refreshToken")
