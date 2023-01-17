@@ -5,6 +5,10 @@ import AlertImage from "../../assets/toll.jpg"
 const Alert = () => {
     return (
         <div className='alert_main'>
+            <div style={{width:'100%', fontSize:'40px', marginBottom:'60px'}} className="head-icon top">
+                {/* <RiPoliceCarFill className='from-left' /> */}
+                <h6 className='heading'>Vehicle Trace-Passing</h6>
+            </div>
 
             <div className='alert_left'>
                 <div className="alert_details">

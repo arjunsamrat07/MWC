@@ -2,18 +2,26 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 30px;
+    flex-wrap: wrap;
+    /* padding: 30px; */
     min-height: 100vh;
-    padding-top: 100px;
+    padding-top: 100px; 
 }
 .map-container{
+    width: 60%;
+    max-width: 750px;
+    min-width: 350px;
     margin: 0 20px;
     border-radius:10px;
     overflow: hidden;
+    outline: 1px solid #666;
 }
 .map .camera-detail{
-    padding: 0 5px 5px 5px;
-    min-width: 300px;
+    /* padding: 0 5px 5px 5px; */
+    border-radius: 10px;
+    outline: 1px solid #666;
+    min-width: 350px;
+    overflow: hidden;
     /* background: rgba(0, 0, 0, 0.02); */
     /* background: red; */
 }
@@ -24,4 +32,14 @@
 }
 .map .camera-detail ul li:nth-child(1){
     background: #d100002b;
+}
+@media screen and (max-width:1020px){
+    .map{
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+    .map .camera-detail{
+    margin: 20px 0;
+
+    }
 }

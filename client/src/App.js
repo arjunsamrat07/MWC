@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 import Cameras from './components/Cameras/Cameras';
 import Map from './components/Map/Map';
 import Report from './components/Report/Report';
+import RegVehicle from './components/Cameras/reg vehicle/RegVehicle';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/vehicle' element={<Vehicle />} />
+        <Route path='/reg-vehicle' element={<RegVehicle />} />
         <Route path='/alert' element={<Alert />} />
         <Route path='/cameras' element={<Cameras />} />
         <Route path='/map' element={<Map />} />

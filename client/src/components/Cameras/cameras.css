@@ -44,6 +44,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.489);
     z-index: 1;
 }
+
 .cameras-container .camera-sidebar .options{
     position: absolute;
     z-index: -1;
@@ -174,8 +175,23 @@
     background: #00000033;
 }
 
+.camera-sidebar .camera-preview svg{
+    animation: active-preview 2s linear infinite;
+}
+@keyframes active-preview{
+    0%{
+        box-shadow: 0 0 0px #008BCD;
+    }
+    50%{
+        color: #008BCD;
+        box-shadow: 0 0 4px #008BCD;
+        /* background: #FFFFFF; */
+    }
+}
 .camera{
     background: transparent;
+    /* min-width: 220px; */
+    /* min-height: 220px; */
     /* width: 400px;
     height: 300px; */
     /* display: flex;
@@ -200,8 +216,8 @@
 
 .videos_main .camera:nth-child(even){
     transform: translatex(-50px);
-
 }
+
 
 @keyframes load-camera {
     0%{

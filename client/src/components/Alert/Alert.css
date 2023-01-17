@@ -1,25 +1,33 @@
 .alert_main {
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+
 }
 
 .alert_right {
-    width: 60%;
+    /* width: 60%; */
     display: flex;
+    min-width: 400px;
     align-items: center;
+    padding: 30px;
     justify-content: center;
 }
 
 .alert_right img {
-    width: 80%;
+    width: 100%;
     border-radius: 10px;
     object-fit: cover;
+    box-shadow:0 3px 12px #00000055;
 }
 
 .alert_left {
-    width: 40%;
-    height: 100vh;
+    min-width: 400px;
+    padding: 30px;
+    /* height: 100vh; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,12 +35,21 @@
 }
 
 .alert_details {
+    width: 100%;
+    min-width: 400px;
+    min-height: 400px;
     background-color: #F3F3F3;
-    outline: 1px solid rgb(219, 0, 0);
-    width: 430px;
-    height: 360px;
+    /* outline: 1px solid rgb(219, 0, 0); */
+    box-shadow:0 3px 12px #00000033;
+    /* max-width: 480px; */
+    /* min-width: 430px; */
+    /* height: 360px; */
     text-align: center;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+    justify-content: space-between;
 }
 
 .alert_details div {
@@ -51,7 +68,20 @@
 }
 
 .alert_details h3{
-    padding: 25px;
+    padding: 20px 0;
+    /* padding: 25px; */
     text-align: left;
     margin-left: 40px;
+}
+
+@media screen and (max-width:900px){
+    .alert_main{
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+
+    }
+    .alert_left{
+    width: 100%;
+    max-width: 600px;
+    }
 }
