@@ -99,7 +99,7 @@ const userLogin = async (req, res, next) => {
 
                 const response = {
                     success: true,
-                    message: "user details",
+                    message: "user loged in successgully..!",
                     accessToken,
                     refreshToken,
                     data: userResult
