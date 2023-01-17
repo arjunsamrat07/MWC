@@ -1,9 +1,10 @@
 .vehicle_main{
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: center;
         flex-wrap: wrap;
         min-height: 100vh;
+        align-content: center;
         /* position: absolute;
         top: 50%;
         left: 50%;
@@ -11,34 +12,42 @@
 }
 
 .vehicle_left{
-    width: 50%;
+    /* width: 50%; */
     display: flex;
     align-items: center;
+    min-width: 400px;
     justify-content: center;
-    padding: 20px;
+    padding: 20px 40px;
 }
 
 .vehicle_left img{
     width: 100%;
-    max-width: 40vw;
-    min-width: 500px;
+    /* max-width: 40vw; */
     border-radius: 10px;
     object-fit: cover;   
 }
 
 .vehicle_right{
-    width: 40%;
+    /* width: 40%; */
+    min-width: 400px;
     /* height: 100vh; */
     display: flex;
     align-items: center;
-    gap: 10px;
+    /* gap: 10px; */
+    
+}
+.vehicle_right img{
+    box-shadow:0 3px 12px #00000055;
+    border-radius: 10px;
 }
 
 .vehicle_details{
     background-color: #F3F3F3;
     min-width: 430px;
-    height: 360px;
+    /* height: 360px; */
+    min-height: 400px;
     text-align: center;
+    box-shadow:0 3px 12px #00000033;
     border-radius: 10px;
 }
 .vehicle_no{
@@ -61,7 +70,7 @@
     padding: 10px;
 }
 
-.vehicle_details .not_registerd button{
+.vehicle_details .not_registerd a{
     background-color: black;
     margin: 15px;
     padding: 12px 40px;
@@ -81,3 +90,14 @@
 
 
 
+@media screen and (max-width:900px){
+    .vehicle_main{
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+
+    }
+    .vehicle_left{
+    width: 100%;
+    max-width: 600px;
+    }
+}

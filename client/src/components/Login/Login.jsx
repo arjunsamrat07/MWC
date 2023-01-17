@@ -20,18 +20,18 @@ function Login() {
       <div className='head-icon'>
         {
           userType ?
-          <>
-          {action === "password" ? <HiKey className='from-left' />:<MdSecurity className='from-left' />}
-          </>
+            <>
+              {action === "password" ? <HiKey className='from-left' /> : <MdSecurity className='from-left' />}
+            </>
             :
             <>
-            {action === "password" ? <HiKey className='from-right' />:<HiOutlineIdentification className='from-right' />}
+              {action === "password" ? <HiKey className='from-right' /> : <HiOutlineIdentification className='from-right' />}
             </>
         }
-        {}
-      {action === "login" && <h4 className='heading from-right'>Sign In</h4>}
-      {action === "register" && <h4 className='heading from-left'> Sign Up</h4>}
-      {action === "password" && <h4 className='heading from-right'>Reset Password</h4>}
+        { }
+        {action === "login" && <h4 className='heading from-right'>Sign In</h4>}
+        {action === "register" && <h4 className='heading from-left'> Sign Up</h4>}
+        {action === "password" && <h4 className='heading from-right'>Reset Password</h4>}
       </div>
       <div className='main_buttons'>
         <button onClick={() => setUserType(true)} className={userType ? 'btn active' : 'btn'}><i className="fa-regular fa-circle-user"></i>  Security</button>

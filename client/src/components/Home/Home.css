@@ -1,6 +1,8 @@
 .home_container {
     display: flex;
-    margin: auto;
+    margin: center;
+    align-items: stretch;
+    justify-content: space-around;
     position: relative;
 }
 
@@ -9,10 +11,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 55%;
+    width: 60%;
     background-color: #EFF5FF;
     height: 100vh;
+    justify-self: flex-start;
+}
 
+@media screen and (max-width:800px) {
+    .home_container 
+    {}
+
+    .home_left {
+        display: none;
+    }
 }
 
 .home_left img {
@@ -21,15 +32,17 @@
 }
 
 .home_right {
-    width: 45%;
+    width: 40%;
+    min-width: 350px;
     height: 100vh;
-    padding: 10px 0;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.home_right img {
+.home_right img.corner-logo {
+    min-width: 50px;
     width: 6.5%;
     position: absolute;
     top: 20px;

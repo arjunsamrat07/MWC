@@ -256,7 +256,7 @@ const cameras = [
               <GridView />
             </div>
             {expand && <Tooltip title={"Open Camera Preview"} placement='left' onClick={() => { window.scrollTo(0, 0) }}>
-              <span>
+              <span className='camera-preview'>
                 <HiOutlineVideoCamera />
               </span>
             </Tooltip>}

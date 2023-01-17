@@ -1,0 +1,19 @@
+.vehicle-reg-form{
+    width: 100%;
+    min-height: 100vh;
+    margin: auto;
+    /* background: #008BCD22; */
+}
+.vehicle-reg-form form{
+    min-width: 400px;
+    width: 50%;
+    margin: auto;
+    /* transform: translateY(50%); */
+}
+.vehicle-reg-form form input{
+    border: 1px solid #aaa;
+}
+.vehicle-reg-form .heading{
+    font-size: 30px;
+    margin-bottom: 20px;
+}

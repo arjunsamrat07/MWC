@@ -11,12 +11,12 @@ function Home() {
 
       {/* Home left section */}
       <div className='home_left'>
-        <img src={security} />
+        <img  src={security} />
       </div>
 
       {/* Home right section */}
       <div className='home_right'>
-        <img src={Logo} />
+        <img className='corner-logo' src={Logo} />
         <Login />
       </div>
 
