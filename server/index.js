@@ -14,6 +14,16 @@ app.use("/refreshtoken", refreshToken)
 
 const dbService = require("./dbservice")
 
+app.get("/employees", (req, res) => {
+  dbService.query("SELECT * FROM employee", (err, rows) => {
+    if (err) {
+      console.log(err)
+    } else {
+      return res.send(rows)
+    }
+  })
+})
+
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
