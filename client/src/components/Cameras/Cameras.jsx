@@ -21,7 +21,7 @@ const Videos = () => {
   const navigate = useNavigate()
 
 
-  const cameraSize = { width: `calc(${100 / sidebar.grid.y}% - 20px)`, height: `calc(${100 / sidebar.grid.x}% - 60px)` }
+  const cameraSize = { width: `${70 / sidebar.grid.y}vw` }
   const expandCameraSize = { minWidth: 'auto', height: 'auto', margin: '0' }
 
   const expandCamera = (cameradata) => {
@@ -209,7 +209,7 @@ const cameras = [
 
   return (
     <>
-      {!expand && <Navbar />}
+      {/*!expand && */ <Navbar dark={expand} />}
       <div className='main-container'>
         <div className={expand ? 'expand-camera expanded' : 'expand-camera'}>
           <MdCancel className='close-expanded' onClick={() => setExpand(false)} />

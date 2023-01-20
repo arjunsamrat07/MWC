@@ -6,6 +6,7 @@
     /* align-items: center; */
     justify-content: space-between;
     /* background: #fff; */
+    min-height: 100vh;
     position: relative;
 }
 .videos_main{
@@ -14,8 +15,8 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
-    height: calc(100vh - 70px);
-    overflow: hidden;
+    /* height: calc(100vh - 70px); */
+    /* overflow: hidden; */
     margin-top: 70px;
     padding-right: 50px;
     /* background: #005278; */
@@ -200,7 +201,7 @@
     /* outline: 1px solid #00000099; */
     padding: 10px;
     background: #66666644;
-    margin: 30px 10px;
+    margin: 10px;
     border-radius: 5px;
     position: relative;
     overflow: auto;
@@ -307,7 +308,8 @@ background: rgb(79, 79, 79);
     color: #008BCD;
 }
 .expand-camera.expanded{
-    height: 100vh;
+    top: 60px;
+    height: calc(100vh - 60px);
     padding: 20px;
     outline: 1px solid #00000099;
     /* border: 1px solid #fff; */

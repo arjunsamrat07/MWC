@@ -11,7 +11,12 @@ import Report from './components/Report/Report';
 import RegVehicle from './components/Cameras/reg vehicle/RegVehicle';
 
 
+
+
+
+
 function App() {
+ 
   return (
     <>
       {/* <Navbar /> */}
