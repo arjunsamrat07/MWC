@@ -12,7 +12,7 @@ mysqlConnection.connect((err) => {
   if (err) {
     console.log(err)
   } else {
-    console.log("db connected successfully..!!")
+    console.log("Mysql db connected successfully..!!")
   }
 })
 
