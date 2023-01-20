@@ -1,11 +1,10 @@
-const User = require("../model/User")
+const User = require("../model/user.js")
 const bcryptjs = require("bcryptjs")
 const createTokens = require("../utils/createTokens")
 
 
 // get user 
-
-const getAllUsers = async (req, res, next) => {
+    const getAllUsers = async (req, res, next) => {
     let users;
     try {
         users = await User.find()
@@ -31,7 +30,7 @@ const addUser = async (req, res, next) => {
     }
 
     const hashedPassword = await bcryptjs.hash(password, 10)
-    let user
+    let user;
     try {
         user = new User({
             name, email, password: hashedPassword, role
