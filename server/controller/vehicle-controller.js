@@ -1,7 +1,5 @@
 const db = require("../models")
-
 const Vehicle = db.vehicle
-
 const op = db.Sequelize.Op
 
 
@@ -9,30 +7,25 @@ const op = db.Sequelize.Op
 
 const vehicleRegister = (req, res) => {
 
-    const vehicle = {
-        vehicleType: req.body.vehicleType,
-        ownerName: req.body.ownerName,
-        mobileNo: req.body.mobileNo,
-        vehicleRegNo: req.body.vehicleRegNo,
-        empName: req.body.empName
-    }
+    const { vehicleType, ownerName, mobileNo, vehicleRegNo, empName } = req.body
 
-    Vehicle.create(vehicle).then(data => {
-        res.send(data);
+    Vehicle.create({vehicleType, ownerName, mobileNo, vehicleRegNo, empName}).then(data => {
+        res.status(201).send({ message: "vehicle addded successfully..!", data });
     })
         .catch(err => {
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred while creating the Tutorial."
+                    err.message || "Some error occurred while creating the Vehicle."
             });
         });
 
 }
 
+
+
 // to get all vehicles 
 
 const getAllVehicles = (req, res) => {
-    
     Vehicle.findAll()
         .then(data => {
             res.send(data);

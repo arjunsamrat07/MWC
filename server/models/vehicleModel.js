@@ -6,8 +6,9 @@ module.exports = (sequelize, Sequelize) =>{
         ownerName :{
             type:Sequelize.STRING
         },
-        mobiloeNo :{
-            type:Sequelize.INTEGER
+        mobileNo :{
+            type:Sequelize.BIGINT,
+            // allowNull: false
         },
         vehicleRegNo :{
             type:Sequelize.STRING

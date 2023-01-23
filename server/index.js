@@ -11,22 +11,21 @@ app.use(express.json())
 const dotenv = require('dotenv').config();
 const refreshToken = require("./routes/refreshToken")
 
-const db = require("./models")
-db.sequelize.sync()
-  .then(() => {
-    console.log("Synced db.");
-  })
-  .catch((err) => {
-    console.log("Failed to sync db: " + err.message);
-  });
-  
+// const db = require("./models")
+// db.sequelize.sync()
+//   .then(() => {
+//     console.log("Synced db.");
+//   })
+//   .catch((err) => {
+//     console.log("Failed to sync db: " + err.message);
+//   });
 
 
 // routes
 app.use("/users", router)
 app.use("/refreshtoken", refreshToken)
 app.use("/detection", detectionRoutes)
-app.use("/vehicle",vehicleRoutes)
+app.use("/vehicle", vehicleRoutes)
 
 
 const dbService = require("./dbservice")

@@ -17,11 +17,11 @@ const getAllDetections = async (req, res, next) => {
     return res.status(200).json({ detections })
 }
 
+
 // to add detections
 
 const addDetection = async (req, res, next) => {
     const { detection, detectionTime } = req.body;
-
     let aDetection;
     try {
         aDetection = new Detection({
@@ -34,7 +34,7 @@ const addDetection = async (req, res, next) => {
     if (!aDetection) {
         return res.status(500).json({ message: "Detection not sent" })
     }
-    return res.status(201).json({ aDetection })
+    return res.status(201).json({ message: "Detection added successfully..!!", aDetection })
 }
 
 exports.getAllDetections = getAllDetections
