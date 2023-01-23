@@ -82,7 +82,7 @@ const userLogin = async (req, res, next) => {
 
         const { email, password } = req.body
 
-        console.log(req.body)
+        // console.log(req.body)
         const user = await User.findOne({ email: email })
         if (user) {
             const passwordMatch = await bcryptjs.compare(password, user.password)
