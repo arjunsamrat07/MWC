@@ -11,7 +11,9 @@ import { useNavigate } from 'react-router-dom'
 import { useRef } from 'react'
 
 
+
 const Videos = () => {
+  
   const scrollRef = useRef(null)
   const [expand, setExpand] = useState(false)
   const [expandedCameraData, setExpandedCameraData] = useState('')
@@ -19,6 +21,7 @@ const Videos = () => {
   const [camsdivider, setCamsdivider] = useState(1)
   const [sidebar, setSidebar] = useState({ fullScreen: false, showGridOptions: false, grid: { x: 2, y: 4 }, gotoPage:false})
   const navigate = useNavigate()
+  const [alert, setAlert] = useState({alert:false,data:{}, minimizedAlarm:true})
 
 
   const cameraSize = { width: `${70 / sidebar.grid.y}vw` }
@@ -202,15 +205,16 @@ const cameras = [
   useEffect(() => {
     setCams(cameras.slice((sidebar.grid.x * sidebar.grid.y)*(camsdivider-1) , ((sidebar.grid.x * sidebar.grid.y)*camsdivider)))
     
-    console.log(((sidebar.grid.x * sidebar.grid.y)*camsdivider) , (sidebar.grid.x * sidebar.grid.y)*(camsdivider-1) , ((sidebar.grid.x * sidebar.grid.y)*camsdivider))
-    console.log(Math.ceil(cameras.length / (sidebar.grid.x * sidebar.grid.y)) >= camsdivider ,  0 < camsdivider)
+    // console.log(((sidebar.grid.x * sidebar.grid.y)*camsdivider) , (sidebar.grid.x * sidebar.grid.y)*(camsdivider-1) , ((sidebar.grid.x * sidebar.grid.y)*camsdivider))
+    // console.log(Math.ceil(cameras.length / (sidebar.grid.x * sidebar.grid.y)) >= camsdivider ,  0 < camsdivider)
   }, [camsdivider,sidebar.grid.x,sidebar.grid.y ])
 
 
   return (
     <>
-      {/*!expand && */ <Navbar dark={expand} />}
-      <div className='main-container'>
+      {/*!expand && */ <Navbar setalert={setAlert} alert={alert} dark={expand} />}
+      <div className={'main-container '} style={alert.alert ? {animation:"alert-animation 1s linear infinite"}:{}}>
+        
         <div className={expand ? 'expand-camera expanded' : 'expand-camera'}>
           <MdCancel className='close-expanded' onClick={() => setExpand(false)} />
 

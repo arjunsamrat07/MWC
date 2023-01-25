@@ -5,50 +5,58 @@ import "./Navbar.css"
 import { useEffect } from 'react';
 import io from 'socket.io-client';
 import AlertModel from '../Alertmodel/AlertModel';
-
+import classicAlarm from "../../assets/Audio/classic-alarm.wav"
+import facilityAlarm from "../../assets/Audio/facility-alarm.wav"
+import securityFacilityBreachAlarm from "../../assets/Audio/security-facility-breach-alarm.wav"
+import streetPublicAlarm from "../../assets/Audio/street-public-alarm.wav"
+import vintageWarningAlarm from "../../assets/Audio/vintage-warning-alarm.wav"
 
 
 
 const Navbar = (props) => {
     const [camera, setCamera] = useState('camera1')
     const [socket, setSocket] = useState()
-    const [alert, setAlert] = useState("")
+    const [dark, setDark] = useState(props.dark)
+    // const [alert, setAlert] = useState("")
+    const audios = [classicAlarm, facilityAlarm, securityFacilityBreachAlarm, streetPublicAlarm, vintageWarningAlarm]
+    const [alertAudio,setAlertAudio] = useState(new Audio(audios[0]))
 
-
-    const alertData = [
-        {
-            detection: 'Suspicious Activity Deatected',
-            detectionTime: new Date(),
-        },
-        {
-            detection: 'Suspicious Activity Deatected',
-            detectionTime: new Date(),
-        },
-        {
-            detection: 'Suspicious Activity Deatected',
-            detectionTime: new Date(),
-        },
-        {
-            detection: 'Suspicious Activity Deatected',
-            detectionTime: new Date(),
-        }
-    ]
+    
 
     useEffect(() => {
-        setSocket(io(`http://localhost:3001`).connect())
+        setSocket(io(`http://localhost:3030`).connect())
+        setAlertAudio( new Audio(localStorage.getItem('alertaudio') || audios[1]))
     }, [])
 
     useEffect(() => {
-        socket && socket.on('client', data => {
-            socket.emit("server", "world")
-            setAlert(data)
+        socket && socket.on('client', async data => {
+            // const audio = await new Audio(alertAudio)
+            alertAudio.loop = true
+            // socket.emit("security", "worldzzzz")
+            props.setalert(state=>{return {...state, alert:true, data:data}})
+            console.log(data)
+            alertAudio.play()
+            console.log(alertAudio)
         })
+        socket && socket.on('server', data => {
+            // socket.emit("security", "worldzzzz")
+            
+            console.log(data)
+        })
+        socket && socket.emit("join_room", "client")
+        socket && socket.emit("join_room", "server")
     }, [socket])
+    useEffect(()=>{
+        setDark(props.dark || props.alert.alert)
+    },[props.dark, props.alert.alert])
 
+    useEffect(() => {
+    console.log(props.alert.alert,props)
+    }, [props.alert.alert])
     return (
         <>
-        <AlertModel data={alertData} />
-            <div className={props.dark ? "navbar_main dark" : "navbar_main"} >
+        {(props.alert.alert && props.alert.minimizedAlarm) && <AlertModel alertAudio={alertAudio} alert={props.alert} setalert={props.setalert} />}
+            <div className={dark ? "navbar_main dark" : "navbar_main"} >
 
                 <div className='select'>
                     <div>{camera}</div>
@@ -70,14 +78,14 @@ const Navbar = (props) => {
                     <MdKeyboardArrowDown />
                 </div>
 
-                <div className={alert ? "alert active" : "alert"}>
+                <div className={true ? "alert active" : "alert"} onClick={()=>props.setalert(state=>{return {...state, minimizedAlarm:true}})}>
                     <i className="fa-solid fa-circle-exclamation"></i>
-                    {alert && <span>{alert}</span>}
+                    {/* {alert && <span>{alert}</span>} */}
                 </div>
                 <div className='icons'>
-                    <span>
-                        <i className="fa-regular fa-bell"></i>
-                    </span>
+                    {/* <div className={!alert ? "alert active" : "alert"} onClick={()=>props.setalert(state=>{return {...state, minimizedAlarm:true}})}>
+                        <i className="fa-regular fa-bell" ></i>
+                    </div> */}
                     <span>
                         <i className="fa-regular fa-user"></i>
                     </span>

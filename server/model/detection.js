@@ -10,7 +10,7 @@ const detectionSchema = new Schema({
     detectionTime: {
         type: Date,
         default:new Date().getTime(),
-        required: true,
+        // required: true,
     }
 })
 

@@ -11,7 +11,7 @@
     padding:10px;
     color: #333;
     height: 60px;
-    z-index: 99;
+    z-index: 999;
 }
 .navbar_main.dark{
     background: #222;
@@ -112,7 +112,7 @@
     border: 1px solid #fff;
     color: #fff;
 }
-.alert.active{
+.navbar_main.dark .alert.active{
     color: #EC3B29;
     border: 1px solid #EC3B29;
 }

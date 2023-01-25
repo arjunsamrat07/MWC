@@ -5,6 +5,6 @@ const { getAllDetections, addDetection } = require("../controller/detection-cont
 const router = express.Router()
 
 router.get("/", getAllDetections)
-router.post("/", addDetection)
+// router.post("/", addDetection)
 
 module.exports = router;

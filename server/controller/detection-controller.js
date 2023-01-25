@@ -19,23 +19,23 @@ const getAllDetections = async (req, res, next) => {
 
 // to add detections
 
-const addDetection = async (req, res, next) => {
-    const { detection, detectionTime } = req.body;
+// const addDetection = async (req, res, next) => {
+//     const { detection, detectionTime } = req.body;
 
-    let aDetection;
-    try {
-        aDetection = new Detection({
-            detection, detectionTime
-        })
-        aDetection = await aDetection.save()
-    } catch (err) {
-        return next(err)
-    }
-    if (!aDetection) {
-        return res.status(500).json({ message: "Detection not sent" })
-    }
-    return res.status(201).json({ aDetection })
-}
+//     let aDetection;
+//     try {
+//         aDetection = new Detection({
+//             detection, detectionTime
+//         })
+//         aDetection = await aDetection.save()
+//     } catch (err) {
+//         return next(err)
+//     }
+//     if (!aDetection) {
+//         return res.status(500).json({ message: "Detection not sent" })
+//     }
+//     return res.status(201).json({ aDetection })
+// }
 
 exports.getAllDetections = getAllDetections
-exports.addDetection = addDetection
+// exports.addDetection = addDetection

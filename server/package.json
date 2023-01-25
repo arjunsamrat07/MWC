@@ -18,11 +18,8 @@
     "mongoose": "^6.7.4",
     "mysql2": "^3.0.1",
     "nodemon": "^2.0.20",
-<<<<<<< HEAD
-    "socket.io": "^4.5.4"
-=======
+    "socket.io": "^4.5.4",
     "sequelize": "^6.28.0",
     "sqlite3": "^5.1.4"
->>>>>>> 92c6e25cb9fb1e6a15a58ca38a82dc80fd95455d
   }
 }

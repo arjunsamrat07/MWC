@@ -1,0 +1,86 @@
+.alertmodel{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #22000022;
+    backdrop-filter: blur(15px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.alertmodel .container{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.alertmodel .container img{
+    border-radius: 10px;
+    border: 1px solid #fff;
+    box-shadow: 0 10px 20px #000000aa;
+}
+.alertmodel .container .data{
+    border: 1px solid red;
+    background: #00000066;
+    padding: 30px;
+    min-height: 50vh;
+    min-width: 400px;
+    box-shadow: 0 10px 20px #000000aa;
+    border-radius: 10px;
+    display: grid;
+    grid-gap: 1px;
+    /* flex-direction: column; */
+}
+
+.alertmodel .container .data .time{
+    margin: 10px 0;
+}
+.alertmodel .container .data span{
+    padding: 4px;
+    border-radius: 4px;
+    color: #fff;
+    /* background: red; */
+}
+.alertmodel .container .data span:nth-child(1){
+    min-width: 100px;
+    display: inline-block;
+}
+.alertmodel .container .data span:nth-child(2){
+    /* color: red; */
+    background: none;
+}
+.alertmodel .container .data span:nth-child(3){
+    min-width: 120px;
+    /* color: #1976d2; */
+}
+
+.alertmodel .container .data .actions {
+    align-self: flex-end;
+    /* justify-self: flex-end; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.alertmodel .container .data .actions .pswdinput{
+    width: 100%;
+    box-shadow: inset 0 0 10px #00000044;
+    border-radius: 5px;
+    color: #fff;
+    margin-bottom: 20px;
+    padding: 5px 10px;
+}
+.alertmodel .container .data .actions .pswdinput{
+    text-align: center;
+}
+.alertmodel .container .data .actions .minmizealarmbtn{
+    color: #fff;
+    margin-left: 10px;
+    /* border-color: #fff; */
+}

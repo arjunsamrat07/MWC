@@ -5,18 +5,22 @@ const detectionRoutes = require("./routes/detection-routes")
 const vehicleRoutes = require("./routes/vehicle-routes")
 const cors = require("cors")
 const http = require("http")
-const app = express()
+const refreshToken = require("./routes/refreshToken")
+const db = require("./models")
+const dbService = require("./dbservice")
 
 const port = process.env.PORT || 3030
 
-app.use(cors())
 
+const app = express()
+let server = http.createServer(app)
+
+app.use(cors())
 app.use(express.json())
+
 const dotenv = require('dotenv')
 dotenv.config();
-const refreshToken = require("./routes/refreshToken")
 
-const db = require("./models")
 db.sequelize.sync()
   .then(() => {
     console.log("Synced db.");
@@ -34,7 +38,6 @@ app.use("/detection", detectionRoutes)
 app.use("/vehicle",vehicleRoutes)
 
 
-const dbService = require("./dbservice")
 
 
 // mysql test connection
@@ -52,38 +55,47 @@ mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-  .then(() => app.listen(port, () => console.log(`Mongodb connected and listning on port ${port}`)))
+  .then((data) => console.log("Mongo Server Connected"))
   .catch((err) => console.log(err))
 
-  //  Web-Socket
+
+//  Web-Socket  //
+const {Server} = require('socket.io');
+
+const io = new Server(server,{
+  cors:{
+    origin:'*',
+    methods:['GET', 'POST']
+  }
+})
+
+const SocketRouter = require("./routes/socketRouter")(io)
+app.use('/detection/add', SocketRouter)
+
+
   
-  const {Server} = require('socket.io');
-
-  let server = http.createServer(app)
-  const io = new Server(server,{
-    cors:{
-      origin:'*',
-      // methods:['GET', 'POST']
-    }
-  })
-
-  server.listen(3001,()=>{
-    console.log("socket connected & running at", 3001)
-  })
-
-
-
-
-
+  
+  
+  
   // let io = socketIO(server)
   // server.listen(3020);
-
-  io.on('connection', (socket)=>{
+  
+  const a = io.on('connection', (socket)=>{
     console.log('user connected userId: ', socket.id);
-    socket.on('server', (data)=>{
-      socket.broadcast.emit('client',data)
+    
+    // socket.broadcast.emit('client',"data")
+    socket.on('join_room', (data)=>{
       // socket.broadcast.emit('server',data)
+      socket.join(data)
+      console.log(socket.rooms)
+      
+      // toroom()
+      console.log(data)
+      // socket.broadcast.emit('server',data)
+      socket.on('disconnect', ()=>console.log("user Disconnected",socket.id))
     })
   });
-
-
+  
+  
+    server.listen(port, () => console.log(`listning on port ${port}`))
+    
