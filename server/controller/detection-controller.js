@@ -21,6 +21,7 @@ const getAllDetections = async (req, res, next) => {
 // to add detections
 
 const addDetection = async (req, res, next) => {
+    console.log(req.body)
     const { detection, detectionTime } = req.body;
     let aDetection;
     try {
