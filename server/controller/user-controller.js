@@ -4,7 +4,7 @@ const createTokens = require("../utils/createTokens")
 
 
 // get user 
-    const getAllUsers = async (req, res, next) => {
+const getAllUsers = async (req, res, next) => {
     let users;
     try {
         users = await User.find()
@@ -24,8 +24,11 @@ const createTokens = require("../utils/createTokens")
 
 const addUser = async (req, res, next) => {
     const { name, email, password, role } = req.body;
-    console.log(name)
-    if (!name && name.trim() == "" && !email && email.trim() == "" && !password && password.length < 6 && !role && role.trim() == "") {
+
+    if (!name && name.trim() == "" &&
+        !email && email.trim() == "" &&
+        !password && password.length < 6
+        && !role && role.trim() == "") {
         return res.status(401).json({ message: "invalid data" })
     }
 
@@ -79,7 +82,7 @@ const userLogin = async (req, res, next) => {
 
         const { email, password } = req.body
 
-        console.log(req.body)
+        // console.log(req.body)
         const user = await User.findOne({ email: email })
         if (user) {
             const passwordMatch = await bcryptjs.compare(password, user.password)

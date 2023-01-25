@@ -35,7 +35,7 @@ db.sequelize.sync()
 app.use("/users", router)
 app.use("/refreshtoken", refreshToken)
 app.use("/detection", detectionRoutes)
-app.use("/vehicle",vehicleRoutes)
+app.use("/vehicle", vehicleRoutes)
 
 
 

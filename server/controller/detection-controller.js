@@ -17,6 +17,7 @@ const getAllDetections = async (req, res, next) => {
     return res.status(200).json({ detections })
 }
 
+
 // to add detections
 
 // const addDetection = async (req, res, next) => {
