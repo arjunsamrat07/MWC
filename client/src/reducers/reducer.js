@@ -46,3 +46,4 @@ export const reducers = createSlice({
 export const { userLogin, userAuth } = reducers.actions
 
 export default reducers.reducer
+
