@@ -77,8 +77,8 @@ const Navbar = (props) => {
                     </div>
                     <MdKeyboardArrowDown />
                 </div>
-
-                <div className={true ? "alert active" : "alert"} onClick={()=>props.setalert(state=>{return {...state, minimizedAlarm:true}})}>
+                {console.log(props.alert.minimizedAlarm)}
+                <div className={!props.alert.minimizedAlarm ? "alert active" : "alert"} onClick={()=>props.setalert(state=>{return {...state, minimizedAlarm:true}})}>
                     <i className="fa-solid fa-circle-exclamation"></i>
                     {/* {alert && <span>{alert}</span>} */}
                 </div>

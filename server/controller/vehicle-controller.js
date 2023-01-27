@@ -1,6 +1,3 @@
-const { Socket } = require("socket.io")
-const { toroom, sendMessage } = require("..")
-// const { StrictEventEmitter } = require("socket.io/dist/typed-events")
 const db = require("../models")
 const Vehicle = db.vehicle
 const op = db.Sequelize.Op
