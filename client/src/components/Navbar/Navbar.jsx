@@ -25,7 +25,7 @@ const Navbar = (props) => {
 
     useEffect(() => {
         setSocket(io(`http://localhost:3030`).connect())
-        setAlertAudio( new Audio(localStorage.getItem('alertaudio') || audios[1]))
+        setAlertAudio( new Audio(sessionStorage.getItem('alertaudio') || audios[1]))
     }, [])
 
     useEffect(() => {

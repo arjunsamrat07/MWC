@@ -9,10 +9,14 @@ import { useEffect } from 'react'
 import { HiArrowCircleUp, HiArrowLeft, HiArrowRight, HiOutlineVideoCamera } from 'react-icons/hi'
 import { useNavigate } from 'react-router-dom'
 import { useRef } from 'react'
+import { useSelector } from 'react-redux'
 
 
 
 const Videos = () => {
+
+  const userData = useSelector(state => state.mwcReducer)
+  console.log("lllllllllllllllllllllll",userData)
   
   const scrollRef = useRef(null)
   const [expand, setExpand] = useState(false)

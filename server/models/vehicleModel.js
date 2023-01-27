@@ -1,3 +1,5 @@
+
+const { DataTypes } = require("sequelize");
 module.exports = (sequelize, Sequelize) =>{
     const Vehicle = sequelize.define("vehicle",{
         vehicleType :{
@@ -15,6 +17,11 @@ module.exports = (sequelize, Sequelize) =>{
         },
         empName :{
             type:Sequelize.STRING
+        },
+        vehicleInTime :{
+            type:Sequelize.TIME,
+            defaultValue:DataTypes.NOW
+           
         }
     })
     

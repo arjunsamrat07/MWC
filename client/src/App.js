@@ -25,7 +25,7 @@ function App() {
         <Route path='/vehicle' element={<Vehicle />} />
         <Route path='/reg-vehicle' element={<RegVehicle />} />
         <Route path='/alert' element={<Alert />} />
-        <Route path='/cameras' element={<Cameras />} />
+        <Route path='/cam-security' element={<Cameras />} />
         <Route path='/map' element={<Map />} />
         <Route path='/report' element={<Report />} />
       </Routes>

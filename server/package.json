@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@socket.io/component-emitter": "^4.0.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
@@ -18,8 +19,8 @@
     "mongoose": "^6.7.4",
     "mysql2": "^3.0.1",
     "nodemon": "^2.0.20",
-    "socket.io": "^4.5.4",
     "sequelize": "^6.28.0",
+    "socket.io": "^4.5.4",
     "sqlite3": "^5.1.4"
   }
 }

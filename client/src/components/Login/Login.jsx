@@ -5,7 +5,8 @@ import { HiKey, HiOutlineIdentification } from 'react-icons/hi'
 import { MdSecurity } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { userLogin } from '../../reducers/reducer'
+import { userAuth, userLogin } from '../../reducers/reducer'
+import { useEffect } from 'react'
 
 
 
@@ -17,7 +18,9 @@ function Login() {
 
 
 
+
   const userData = useSelector(state => state.mwcReducer)
+  console.log("lllllllllllllllllllllll",userData)
 
   const [data, setData] = useState({})
 
@@ -33,11 +36,16 @@ function Login() {
 
   const logIn = (e) => {
     e.preventDefault()
-    navigate(userType ? 'cameras' : 'vehicle')
+    // navigate(userType ? 'cameras' : 'vehicle')
     console.log("??????????", data)
-    dispatch(userLogin(data))
+    dispatch(userLogin({data,navigate}))
   }
 
+  useEffect(()=>{
+    const userToken = sessionStorage.getItem('userToken')
+    dispatch(userAuth({navigate}))
+    
+  },[])
   return (
     <div className='login_main'>
       <div className='head-icon'>

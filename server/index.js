@@ -8,9 +8,10 @@ const http = require("http")
 const refreshToken = require("./routes/refreshToken")
 const db = require("./models")
 const dbService = require("./dbservice")
+const dotenv = require('dotenv')
+dotenv.config();
 
 const port = process.env.PORT || 3030
-
 
 const app = express()
 let server = http.createServer(app)
@@ -18,50 +19,32 @@ let server = http.createServer(app)
 app.use(cors())
 app.use(express.json())
 
-const dotenv = require('dotenv')
-dotenv.config();
 
-db.sequelize.sync()
-  .then(() => {
-    console.log("Synced db.");
-  })
-  .catch((err) => {
-    console.log("Failed to sync db: " + err.message);
-  });
+// db.sequelize.sync()
+//   .then(() => {
+//     console.log("Synced db.");
+//   })
+//   .catch((err) => {
+//     console.log("Failed to sync db: " + err.message);
+//   });
   
-
-
 // routes
 app.use("/users", router)
 app.use("/refreshtoken", refreshToken)
-app.use("/detection", detectionRoutes)
+app.use("/detection", detectionRoutes) 
 app.use("/vehicle", vehicleRoutes)
 
-
-
-
-// mysql test connection
-app.get("/employees", (req, res) => {
-  dbService.query("SELECT * FROM employee", (err, rows) => {
-    if (err) {
-      console.log(err)
-    } else {
-      return res.send(rows)
-    }
-  })
-})
-
+// mongo db connection
 mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-  .then((data) => console.log("Mongo Server Connected"))
+  .then((data) => console.log(`Mongo DB connected on port ${port}`))
   .catch((err) => console.log(err))
 
 
 //  Web-Socket  //
 const {Server} = require('socket.io');
-
 const io = new Server(server,{
   cors:{
     origin:'*',
@@ -69,14 +52,10 @@ const io = new Server(server,{
   }
 })
 
+// detection socket router
 const SocketRouter = require("./routes/socketRouter")(io)
 app.use('/detection/add', SocketRouter)
 
-
-  
-  
-  
-  
   // let io = socketIO(server)
   // server.listen(3020);
   

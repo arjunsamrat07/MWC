@@ -1,6 +1,3 @@
-const { Socket } = require("socket.io")
-const { toroom, sendMessage } = require("..")
-// const { StrictEventEmitter } = require("socket.io/dist/typed-events")
 const db = require("../models")
 const Vehicle = db.vehicle
 const op = db.Sequelize.Op
@@ -10,9 +7,9 @@ const op = db.Sequelize.Op
 
 const vehicleRegister = (req, res) => {
 
-    const { vehicleType, ownerName, mobileNo, vehicleRegNo, empName } = req.body
+    const { vehicleType, ownerName, mobileNo, vehicleRegNo, empName, vehicleInTime } = req.body
 
-    Vehicle.create({vehicleType, ownerName, mobileNo, vehicleRegNo, empName}).then(data => {
+    Vehicle.create({ vehicleType, ownerName, mobileNo, vehicleRegNo, empName, vehicleInTime }).then(data => {
         res.status(201).send({ message: "vehicle addded successfully..!", data });
     })
         .catch(err => {

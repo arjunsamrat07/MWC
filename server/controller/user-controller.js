@@ -45,7 +45,7 @@ const addUser = async (req, res, next) => {
     if (!user) {
         return res.status(500).json({ message: "unable to save user" })
     }
-    return res.status(201).json({ user })
+    return res.status(201).json({ message:"User Registerd successfully..!",user })
 }
 
 
@@ -101,10 +101,10 @@ const userLogin = async (req, res, next) => {
 
                 const response = {
                     success: true,
-                    message: "user loged in successgully..!",
+                    message: "User loged in successgully..!",
                     accessToken,
                     refreshToken,
-                    data: userResult
+                    user: userResult
                 }
                 res.status(200).json(response)
 
