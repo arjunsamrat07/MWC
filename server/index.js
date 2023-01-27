@@ -68,7 +68,6 @@ app.use('/detection/add', SocketRouter)
       socket.join(data)
       console.log(socket.rooms)
       
-      // toroom()
       console.log(data)
       // socket.broadcast.emit('server',data)
       socket.on('disconnect', ()=>console.log("user Disconnected",socket.id))

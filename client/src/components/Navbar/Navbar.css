@@ -116,6 +116,14 @@
     color: #EC3B29;
     border: 1px solid #EC3B29;
 }
+.navbar_main .alert{
+    /* border: 1px solid #fff;
+    color: #fff; */
+}
+.navbar_main .alert.active{
+    color: #EC3B29;
+    border: 1px solid #EC3B29;
+}
 .alert.active span{
     color: #EC3B29;
 }
