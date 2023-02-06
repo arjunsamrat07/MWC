@@ -10,77 +10,148 @@
     z-index: 9999;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    overflow: auto;
 }
-.alertmodel .container{
-    width: 90%;
+.alertmodel .alert-view{
+    margin: 20px 0;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: scroll;
 }
-.alertmodel .container img{
+.alertmodel .alert-view img{
+    margin: 0 20px;
     border-radius: 10px;
     border: 1px solid #fff;
     box-shadow: 0 10px 20px #000000aa;
+    /* min-width: 400px; */
 }
-.alertmodel .container .data{
-    border: 1px solid red;
+.alertmodel .alert-view .data{
+    /* border: 1px solid red; */
     background: #00000066;
     padding: 30px;
+    margin: 0 20px;
     min-height: 50vh;
-    min-width: 400px;
-    box-shadow: 0 10px 20px #000000aa;
+    /* min-width: 400px; */
+    box-shadow:inset 0 10px 20px #000000aa;
     border-radius: 10px;
     display: grid;
     grid-gap: 1px;
     /* flex-direction: column; */
 }
 
-.alertmodel .container .data .time{
+.alertmodel .alert-view .data .time{
     margin: 10px 0;
 }
-.alertmodel .container .data span{
+.alertmodel .alert-view .data span{
     padding: 4px;
     border-radius: 4px;
     color: #fff;
     /* background: red; */
 }
-.alertmodel .container .data span:nth-child(1){
+.alertmodel .alert-view .data span:nth-child(1){
     min-width: 100px;
     display: inline-block;
 }
-.alertmodel .container .data span:nth-child(2){
+.alertmodel .alert-view .data span:nth-child(2){
     /* color: red; */
     background: none;
 }
-.alertmodel .container .data span:nth-child(3){
+.alertmodel .alert-view .data span:nth-child(3){
     min-width: 120px;
     /* color: #1976d2; */
 }
 
-.alertmodel .container .data .actions {
+.alertmodel .alert-view .data .actions {
     align-self: flex-end;
     /* justify-self: flex-end; */
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
-    justify-content: center;
-
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
 }
-
-.alertmodel .container .data .actions .pswdinput{
+.alertmodel .alert-view .data .actions .alarmactiontext{
+    color: #FFF;
     width: 100%;
-    box-shadow: inset 0 0 10px #00000044;
-    border-radius: 5px;
-    color: #fff;
-    margin-bottom: 20px;
-    padding: 5px 10px;
-}
-.alertmodel .container .data .actions .pswdinput{
     text-align: center;
+    font-weight: 600;
+    margin: 5px 0;
+    padding: 3px 0;
+    background: linear-gradient(to right, transparent, rgba(255, 0, 0, 0.3), rgba(0, 128, 0, 0.3), transparent);
 }
-.alertmodel .container .data .actions .minmizealarmbtn{
+.alertmodel .alert-view .data .actions button{
+    width: 49.5%;
+}
+
+
+.alertmodel .alert-list{
+    position: relative;
+    min-width: 300px;
+    box-shadow:inset 0 10px 20px #000000;
+    background: #00000066;
+    /* border-left: 1px solid rgba(255, 0, 0, 0.507); */
+    height: 100vh;
+    overflow: scroll;
+}
+.alertmodel .alert-list {
+    display: flex;
+    flex-direction: column;
+}
+.alertmodel .alert-list .alert.item{
+    background: transparent;
+    /* animation: new-alert-entry .3s ease-in-out forwards; */
+    border: 1px solid #ffffff66;
+    margin: 5px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .2s;
+}
+.alertmodel .alert-list .alert.item:hover{
+    background: #ffffff22;
+}.alertmodel .alert-list .alert.item.active{
+    background: #ffffff22;
+}
+.alertmodel .alert-list .alert.item:active{
+    background: transparent;
+}
+.alertmodel .alert-list .alert.item .alertinfo{
+    width: calc(95% - 100px);
+}
+@keyframes new-alert-entry{
+    0%{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+.alertmodel .alert-list img {
+    width: 100px;
+    border-radius: 5px;
+}
+.alertmodel .alert-list p{
+    text-align: center;
+    /* color: red; */
+    width: 100%;
+}
+.alertmodel .alert-list .detection{
+    text-transform: capitalize;
+    /* background: linear-gradient(to right, transparent, red, transparent); */
+    color: red;
+    font-weight: 500;
+}
+.alertmodel .alert-list .detection-time{
+    font-size: 10px;
+    margin-top: 5px;
     color: #fff;
-    margin-left: 10px;
-    /* border-color: #fff; */
 }

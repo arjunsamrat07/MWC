@@ -4,7 +4,7 @@
 .login_main h4.heading{
 text-align: center;
 /* margin: 30px; */
-font-size: 40px;
+/* font-size: 40px; */
 color: #008BCD;
 }
 
@@ -91,6 +91,7 @@ form input{
     background-color: #EFF5FF;
     border: 1px solid #aaa;
     color: #008BCD;
+    font-size: 12px;
 }
 
 form label{

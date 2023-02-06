@@ -5,8 +5,9 @@ import { HiKey, HiOutlineIdentification } from 'react-icons/hi'
 import { MdSecurity } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { userAuth, userLogin } from '../../reducers/reducer'
+// import { userAuth } from '../../reducers/reducer'
 import { useEffect } from 'react'
+import { userAuth, userLogin } from '../../reducers/asyncthunks'
 
 
 
@@ -19,7 +20,7 @@ function Login() {
 
 
 
-  const userData = useSelector(state => state.mwcReducer)
+  const userData = useSelector( (state) => {return state.mwcReducer})
   console.log("lllllllllllllllllllllll",userData)
 
   const [data, setData] = useState({})
@@ -36,14 +37,12 @@ function Login() {
 
   const logIn = (e) => {
     e.preventDefault()
-    // navigate(userType ? 'cameras' : 'vehicle')
-    console.log("??????????", data)
     dispatch(userLogin({data,navigate}))
   }
 
   useEffect(()=>{
     const userToken = sessionStorage.getItem('userToken')
-    dispatch(userAuth({navigate}))
+    if(userToken){dispatch(userAuth({navigate}))}
     
   },[])
   return (

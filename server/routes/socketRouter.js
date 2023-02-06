@@ -3,8 +3,9 @@ const express = require('express')
 
 const SocketRouter = (io) => {
     const router = express.Router()
-
+    
     router.post('/', async (req, res, next) => {
+        console.log("post detection>>><>>>>>>>>>>",req.body)
         const { detection, detectionTime } = req.body;
         console.log(req.body)
 

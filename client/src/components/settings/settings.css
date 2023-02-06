@@ -1,0 +1,8 @@
+.settings{
+    min-width: 80%;
+    height: 80vh;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow:inset -5px -5px 10px rgba(0, 0, 0, 0.4),inset 5px 5px 10px rgba(255, 255, 255, 0.4), 5px 5px 10px rgba(0, 0, 0, 0.4), -5px -5px 10px rgba(255, 255, 255, 0.1);
+    background-color: #666;
+}
