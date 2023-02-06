@@ -96,6 +96,10 @@ const getAllVehiclesTimeLog = (req, res) => {
     })
 }
 
+// update vehicle out time
+
+
+
 
 exports.vehicleRegister = vehicleRegister
 exports.getAllVehicles = getAllVehicles
