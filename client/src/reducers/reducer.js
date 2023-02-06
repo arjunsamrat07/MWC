@@ -83,3 +83,4 @@ export const reducers = createSlice({
 export const { socketConnection, addNewAlert } = reducers.actions
 
 export default reducers.reducer
+
