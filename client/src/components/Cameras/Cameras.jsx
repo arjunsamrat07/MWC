@@ -25,7 +25,7 @@ const Videos = () => {
   const [camsdivider, setCamsdivider] = useState(1)
   const [sidebar, setSidebar] = useState({ fullScreen: false, showGridOptions: false, grid: { x: 2, y: 4 }, gotoPage:false})
   const navigate = useNavigate()
-  const [alert, setAlert] = useState({alert:false,data:{}, minimizedAlarm:true})
+  const [alert, setAlert] = useState({alert:false, minimizedAlarm:true})
 
 
   const cameraSize = { width: `${70 / sidebar.grid.y}vw` }
