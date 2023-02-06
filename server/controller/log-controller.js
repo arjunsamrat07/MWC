@@ -9,7 +9,6 @@ const addLogs = async (req, res, next) => {
 
     try {
 
-
         const fetchedDetection = await Detection.findById(detectionId)
         const fetchedUser = await User.findById(userId)
 
@@ -41,5 +40,28 @@ const addLogs = async (req, res, next) => {
     return res.status(201).json({ message: "Detection log saved successfully...!!" })
 
 }
+
+
+// Get all detection logs
+
+const getAllDetectionLogs = async(req, res,next) => {
+    let detectionLogs;
+
+    try {
+        detectionLogs = await DetectionLog.find();
+
+    }catch{
+        return next(err)
+    }
+    if(!detectionLogs){
+        return res.status(404).json({ message: "Internal server error"})
+    }
+
+    return res.status(200).json(detectionLogs)
+}
+
+
+
+exports.getAllDetectionLogs = getAllDetectionLogs;
 
 exports.addLogs = addLogs

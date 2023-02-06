@@ -1,6 +1,6 @@
 const DetectionLog = require('../model/detectionLog');
-const Detection = require("../model/detection")
-const User = require("../model/user.js")
+const Detection = require("../model/detection");
+const User = require("../model/user.js");
 
 
 const addDetectionLog = async (req, res, next) => {
@@ -47,5 +47,7 @@ const addDetectionLog = async (req, res, next) => {
 
     return res.status(201).json({ message: "Detection log saved successfully...!!" })
 }
+
+
 
 exports.addDetectionLog = addDetectionLog;
