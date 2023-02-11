@@ -27,13 +27,13 @@ db.vehicletimelog = require("./vehicleTimeLog.js")(sequelize, Sequelize);
 
 // 1 to many relation
 
-db.vehicle.hasMany(db.vehicletimelog, {
-  foreignKey: "id"
-})
+// db.vehicle.hasMany(db.vehicletimelog, {
+//   foreignKey: "id"
+// })
 
-db.vehicletimelog.belongsTo(db.vehicle, {
-  foreignKey: "id"
-})
+// db.vehicletimelog.belongsTo(db.vehicle, {
+//   foreignKey: "id"
+// })
 
 
 module.exports = db;

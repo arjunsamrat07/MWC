@@ -1,15 +1,17 @@
 const express = require("express")
-const { vehicleRegister, getAllVehicles, addVehicleTimeLog, getAllVehiclesTimeLog, getSingleVehicle } = require("../controller/vehicle-controller")
+const { vehicleRegister, getAllVehicles, addVehicleTimeLog,
+    getAllVehiclesTimeLog,
+    updateVehicleOutTime,
+    getSingleVehicle } = require("../controller/vehicle-controller")
 
 const router = express.Router()
 
 router.post("/", vehicleRegister)
 router.get("/", getAllVehicles)
-router.get("/:vno", getSingleVehicle)
 router.post("/addvehicletimelog", addVehicleTimeLog)
-router.get("/getvehicletimelog", getAllVehiclesTimeLog)
-
-
+router.get("/vehicletimelog", getAllVehiclesTimeLog)
+router.get("/:vno", getSingleVehicle)
+router.put("/updateouttime/:vehicleRegNo", updateVehicleOutTime)
 
 
 module.exports = router;

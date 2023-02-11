@@ -11,7 +11,7 @@ const dbService = require("./dbservice")
 const dotenv = require('dotenv')
 dotenv.config();
 
-const port = process.env.PORT || 3030
+const port = process.env.PORT || 8080
 
 const app = express()
 let server = http.createServer(app)
